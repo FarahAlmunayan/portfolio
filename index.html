@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farh Almunayan — AI, Computer Vision & IoT Portfolio</title>
+    <meta name="description" content="Portfolio of Farh Almunayan, a Computer Science graduate focused on AI, Machine Learning, Computer Vision, IoT, and digital systems.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --surface: rgba(255, 255, 255, 0.88);
+            --surface-hover: #ffffff;
+            --border: rgba(226, 232, 240, 0.85);
+            --border-hover: rgba(99, 102, 241, 0.4);
+            
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --text-subtle: #94a3b8;
+            
+            --accent-indigo: #4f46e5;
+            --accent-rose: #f43f5e;
+            --accent-mint: #10b981;
+            --accent-amber: #f59e0b;
+            --accent-cyan: #0284c7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 10%, rgba(99, 102, 241, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 20%, rgba(2, 132, 199, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 50% 80%, rgba(16, 185, 129, 0.06) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Top Bar */
+        nav {
+            position: fixed;
+            top: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 980px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border);
+            border-radius: 99px;
+            padding: 12px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+        }
+
+        .top-bar-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: -0.01em;
+            background: linear-gradient(135deg, var(--accent-indigo), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-indigo);
+        }
+
+        /* Hero */
+        .hero {
+            padding-top: 160px;
+            padding-bottom: 40px;
+        }
+
+        /* Updated Non-Red GPA Badge */
+        .badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: #e0e7ff;
+            border: 1px solid #c7d2fe;
+            border-radius: 99px;
+            font-size: 0.85rem;
+            color: #3730a3;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-size: 2.7rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.25;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            max-width: 760px;
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .highlight-text {
+            color: var(--accent-indigo);
+            font-weight: 700;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 26px;
+            border-radius: 99px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-indigo), var(--accent-cyan));
+            color: white;
+            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(79, 70, 229, 0.35);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-indigo);
+            color: var(--accent-indigo);
+        }
+
+        /* Stats Strip */
+        .stats-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-top: 50px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+        }
+
+        .stat-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 16px 20px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.01);
+        }
+
+        .stat-val {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-indigo);
+        }
+
+        .stat-lbl {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 70px 0 20px 0;
+        }
+
+        .section-header {
+            margin-bottom: 32px;
+        }
+
+        .section-header h2 {
+            font-size: 1.7rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-top: 4px;
+        }
+
+        /* Project Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 26px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-hover);
+            box-shadow: 0 12px 30px rgba(99, 102, 241, 0.08);
+            background: var(--surface-hover);
+        }
+
+        .card-tag {
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-indigo);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .callout {
+            background: #f1f5f9;
+            border-left: 3px solid var(--accent-mint);
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 20px;
+        }
+
+        .pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .pill {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: #f1f5f9;
+            border: 1px solid var(--border);
+            padding: 3px 10px;
+            border-radius: 99px;
+        }
+
+        /* Experience Box */
+        .exp-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        }
+
+        .exp-title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .exp-company {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        .exp-role {
+            font-size: 0.9rem;
+            color: var(--accent-indigo);
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .exp-card ul {
+            padding-left: 18px;
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.7;
+        }
+
+        .exp-card li {
+            margin-bottom: 8px;
+        }
+
+        /* Checklist Box */
+        .fun-checklist {
+            background: linear-gradient(135deg, #eff6ff, #f0fdf4);
+            border: 1px solid #dbeafe;
+            border-radius: 20px;
+            padding: 28px;
+            margin-top: 32px;
+        }
+
+        .fun-checklist h3 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 14px;
+        }
+
+        .fun-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .fun-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Certifications & Courses Grid */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .cert-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 20px;
+        }
+
+        .cert-card h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .cert-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 50px 0;
+            border-top: 1px solid var(--border);
+            margin-top: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-subtle);
+            font-size: 0.85rem;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.1rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Navigation Bar -->
+    <nav>
+        <div class="top-bar-title">FARH ALMUNAYAN PORTFOLIO</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Work</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Toolkit</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        
+        <!-- Hero Section -->
+        <section class="hero" id="about">
+            <div class="badge-pill">
+                <span>Computer Science Graduate • AI/ML • Computer Vision • IoT</span>
+            </div>
+            
+            <h1>
+                I build <span class="highlight-text">AI, computer vision, and IoT solutions</span> that turn complex data into practical, measurable systems—from multimodal deep learning to real-time safety monitoring.
+            </h1>
+
+            <p>
+                Hi, I'm Farh, a Computer Science graduate focused on AI, Machine Learning, Computer Vision, and IoT. I enjoy connecting intelligent models, embedded systems, and user-centered software to build reliable solutions with clear real-world impact.
+            </p>
+            
+            <div class="btn-group">
+                <a href="mailto:farahalmunayan@gmail.com" class="btn btn-primary" aria-label="Email Farh Almunayan">Let's Talk! ✉️</a>
+                <a href="https://linkedin.com/in/farh-almunayan" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" aria-label="Farh Almunayan LinkedIn profile">LinkedIn Profile 💼</a>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="stats-strip">
+                <div class="stat-box">
+                    <div class="stat-val">4.50 / 5.00</div>
+                    <div class="stat-lbl">Academic GPA</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-val">3rd Place 🏆</div>
+                    <div class="stat-lbl">3rd Place • CS Graduation Projects</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-val">96.1%</div>
+                    <div class="stat-lbl">Eczema AI Accuracy</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-val">&lt; 2.0 sec</div>
+                    <div class="stat-lbl">IoT Cloud Latency</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <div class="section-header">
+                <h2>Featured Projects & Apps</h2>
+                <p>Engineering solutions across AI, IoT, Web, Mobile, and UI/UX design.</p>
+            </div>
+
+            <div class="cards-grid">
+                <!-- SHIELD -->
+                <div class="card">
+                    <div>
+                        <span class="card-tag">🏆 3rd Place Award • IoT & AI</span>
+                        <h3>SHIELD — AI & IoT Real-Time Safety Monitoring System</h3>
+                        <p>Built an IoT safety monitoring system analyzing sensor telemetry (fire, gas leak, electrical risk) in real time with Random Forest risk classification.</p>
+                        <div class="callout">
+                            ⚡ 99.5% Accuracy • &lt; 2s Latency • Twilio Call Alerts
+                        </div>
+                    </div>
+                    <div class="pills">
+                        <span class="pill">ESP32</span>
+                        <span class="pill">Random Forest</span>
+                        <span class="pill">Firebase</span>
+                        <span class="pill">Node-RED</span>
+                        <span class="pill">Python</span>
+                    </div>
+                </div>
+
+                <!-- ECZEMA AI -->
+                <div class="card">
+                    <div>
+                        <span class="card-tag">🩺 Medical AI </span>
+                        <h3>AI-Based Eczema Classification</h3>
+                        <p>Co-developed a multimodal AI combining EfficientNetB0, Vision & Swin Transformers with MLP, XGBoost, and TabNet on 1,508 real clinical records from KFUH.</p>
+                        <div class="callout">
+                            🎯 96.1% Test Acc • 0.995 AUC-ROC • Grad-CAM
+                        </div>
+                    </div>
+                    <div class="pills">
+                        <span class="pill">PyTorch</span>
+                        <span class="pill">Vision Transformers</span>
+                        <span class="pill">TabNet</span>
+                        <span class="pill">XGBoost</span>
+                        <span class="pill">Keras</span>
+                    </div>
+                </div>
+
+                <!-- CRACK ISOLATION -->
+                <div class="card">
+                    <div>
+                        <span class="card-tag">🔍 Computer Vision</span>
+                        <h3>Structural Concrete Crack Isolation</h3>
+                        <p>Automated image-processing pipeline isolating concrete cracks from complex, noisy background surfaces using OpenCV and feature descriptors.</p>
+                        <div class="callout">
+                            📸 Texture Analysis, CLAHE & Adaptive Canny
+                        </div>
+                    </div>
+                    <div class="pills">
+                        <span class="pill">Python</span>
+                        <span class="pill">OpenCV</span>
+                        <span class="pill">LBP</span>
+                        <span class="pill">HOG Descriptors</span>
+                    </div>
+                </div>
+
+                <!-- SAFEGUARD AI -->
+                <div class="card">
+                    <div>
+                        <span class="card-tag">💡 FinTech Hackathon</span>
+                        <h3>Safeguard AI Assistant</h3>
+                        <p>Co-developed an AI financial assistant analyzing recurring subscriptions, detecting overpayments, and calculating time cost in work hours.</p>
+                        <div class="callout">
+                            📊 Anomaly Detection & Overpayment Analytics
+                        </div>
+                    </div>
+                    <div class="pills">
+                        <span class="pill">Python</span>
+                        <span class="pill">Machine Learning</span>
+                        <span class="pill">Financial Analytics</span>
+                    </div>
+                </div>
+
+                <!-- FUNDIFY (UI/UX) -->
+                <div class="card">
+                    <div>
+                        <span class="card-tag">🎨 UI/UX Prototype</span>
+                        <h3>Fundify — Financial Tracker</h3>
+                        <p>Designed a user-centered financial tracking interface in Figma for tracking expenses, savings, budgets, and personal financial goals.</p>
+                        <div class="callout">
+                            📱 Intuitive Navigation & Usability Prototype
+                        </div>
+                    </div>
+                    <div class="pills">
+                        <span class="pill">Figma</span>
+                        <span class="pill">UI/UX Design</span>
+                        <span class="pill">Prototyping</span>
+                    </div>
+                </div>
+
+                <!-- QUICKBATTLE (Android) -->
+                <div class="card">
+                    <div>
+                        <span class="card-tag">📱 Android Mobile App</span>
+                        <h3>QuickBattle — Trivia Game</h3>
+                        <p>Engineered a responsive Android trivia game in Java with smooth UI transitions and SQLite database synchronization for local quiz gameplay.</p>
+                        <div class="callout">
+                            🎮 Native Android & SQLite Backend Logic
+                        </div>
+                    </div>
+                    <div class="pills">
+                        <span class="pill">Java</span>
+                        <span class="pill">Android Studio</span>
+                        <span class="pill">SQLite</span>
+                        <span class="pill">UI/UX</span>
+                    </div>
+                </div>
+
+                <!-- FITWEAR (Web Store) -->
+                <div class="card">
+                    <div>
+                        <span class="card-tag">🌐 E-Commerce Web</span>
+                        <h3>FitWear — Apparel Store</h3>
+                        <p>Developed a responsive front-end and back-end structure for a sports clothing store featuring interactive category filtering and shopping cart features.</p>
+                        <div class="callout">
+                            🛍️ Full-Stack Web Development
+                        </div>
+                    </div>
+                    <div class="pills">
+                        <span class="pill">HTML/CSS</span>
+                        <span class="pill">JavaScript</span>
+                        <span class="pill">PHP</span>
+                        <span class="pill">Database</span>
+                    </div>
+                </div>
+
+                <!-- AI BOOTCAMP DASHBOARD -->
+                <div class="card">
+                    <div>
+                        <span class="card-tag">🏆 3rd Place Award • AI Bootcamp</span>
+                        <h3>AI Pre-Processing Dashboard</h3>
+                        <p>Built an automated data pre-processing and visualization dashboard for AI data cleaning and inspection during a 50-hour intensive AI bootcamp.</p>
+                        <div class="callout">
+                            📊 Awarded 3rd Place for Best Solution Evaluation
+                        </div>
+                    </div>
+                    <div class="pills">
+                        <span class="pill">Python</span>
+                        <span class="pill">Data Cleaning</span>
+                        <span class="pill">Dashboards</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <div class="section-header">
+                <h2>Professional Experience</h2>
+                <p>Enterprise digital systems development at Worley Engineering.</p>
+            </div>
+
+            <div class="exp-card">
+                <div class="exp-title-row">
+                    <span class="exp-company">Worley — Saudi Arabia</span>
+                    <span class="pill" style="background:#e0e7ff; color:#3730a3; font-weight:700;">June 2026 – August 2026</span>
+                </div>
+                <div class="exp-role">Digital Co-op Trainee (Digital Ticketing System - DTS)</div>
+                <ul>
+                    <li>Built the Digital Ticketing System (DTS) using Microsoft Power Apps, SharePoint, and Power Automate to centralize request management, tracking, and reporting.</li>
+                    <li>Designed Canvas App user and admin interfaces featuring dynamic filtering by priority, department, and status.</li>
+                    <li>Configured 4 automated Power Automate workflows handling notifications, dynamic assignments, and structured reporting.</li>
+                    <li>Tested the solution end to end across Power Apps, SharePoint, Power Automate, and Excel, resolving issues before delivery.</li>
+                </ul>
+            </div>
+
+            <div class="fun-checklist">
+                <h3>How I Work</h3>
+                <div class="fun-grid">
+                    <div class="fun-item">✅ Data-driven AI & IoT development</div>
+                    <div class="fun-item">✅ Structured problem-solving under deadlines</div>
+                    <div class="fun-item">✅ Clean, user-centered enterprise app design</div>
+                    <div class="fun-item">✅ Collaborative, detail-oriented delivery</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications & Courses -->
+        <section id="certifications">
+            <div class="section-header">
+                <h2>Honors, Certifications & Courses</h2>
+                <p>Academic excellence certificates and specialized coursework.</p>
+            </div>
+
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <h4>🎓 Excellence Certificate</h4>
+                    <p>Deanship of Admission & Registration, IAU (2021–2023)</p>
+                </div>
+                <div class="cert-card">
+                    <h4>🏆 3rd Place Best Graduation Project</h4>
+                    <p>CCSIT 11th Showcase Award for SHIELD IoT System</p>
+                </div>
+                <div class="cert-card">
+                    <h4>🏆 3rd Place Best AI Solution</h4>
+                    <p>50-Hour AI Bootcamp Pre-processing Dashboard</p>
+    
+               
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <div class="section-header">
+                <h2>Technical Toolkit</h2>
+                <p>Complete skill matrix across software, AI, hardware, and design.</p>
+            </div>
+
+            <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                <div class="card" style="padding:20px;">
+                    <span class="card-tag">AI & Deep Learning</span>
+                    <div class="pills">
+                        <span class="pill">PyTorch</span>
+                        <span class="pill">TensorFlow / Keras</span>
+                        <span class="pill">CNNs</span>
+                        <span class="pill">Transformers</span>
+                        <span class="pill">XGBoost / TabNet</span>
+                        <span class="pill">Grad-CAM</span>
+                    </div>
+                </div>
+
+                <div class="card" style="padding:20px;">
+                    <span class="card-tag">IoT & Hardware</span>
+                    <div class="pills">
+                        <span class="pill">ESP32</span>
+                        <span class="pill">Sensors Integration</span>
+                        <span class="pill">Firebase DB</span>
+                        <span class="pill">Node-RED</span>
+                        <span class="pill">Telemetry</span>
+                    </div>
+                </div>
+
+                <div class="card" style="padding:20px;">
+                    <span class="card-tag">Languages & Mobile</span>
+                    <div class="pills">
+                        <span class="pill">Python</span>
+                        <span class="pill">Java</span>
+                        <span class="pill">C++</span>
+                        <span class="pill">JavaScript</span>
+                        <span class="pill">PHP</span>
+                        <span class="pill">Android Studio</span>
+                        <span class="pill">SQLite</span>
+                    </div>
+                </div>
+
+                <div class="card" style="padding:20px;">
+                    <span class="card-tag">Low-Code & Design</span>
+                    <div class="pills">
+                        <span class="pill">Power Apps</span>
+                        <span class="pill">Power Automate</span>
+                        <span class="pill">SharePoint</span>
+                        <span class="pill">Figma UI/UX</span>
+                        <span class="pill">Web Design</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div>Farh Almunayan &copy; 2026 — Eastern Province, Saudi Arabia</div>
+            <div>farahalmunayan@gmail.com | +966 54 065 6477</div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
